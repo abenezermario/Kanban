@@ -32,10 +32,9 @@ function kanban() {
         e.target.blur(); // remove focus after enter
         if (this.textContent) {
           // if text add todo
-          // kanban.todo.push(this.textContent);
-          kanban.total++;
+          kanban.total++; // update total todos
           console.log("total: ", kanban.total);
-          kanban.checkProgress();
+          kanban.checkProgress(); // check progress
           kanban.addTodo();
         } else {
           // remove the list element
@@ -47,10 +46,10 @@ function kanban() {
   // add button
   addTask.addEventListener("click", function () {
     kanban.addTodo();
-    // kanban.total++;
-    kanban.checkProgress();
+    kanban.checkProgress(); // check progress
   });
 
+  // drag function
   kanban.drag = function () {
     const listElements = document.querySelectorAll(".card");
     if (listElements) {
@@ -124,7 +123,7 @@ function kanban() {
       ((ipItems.length / this.total) * 0.5 + doneItems.length / this.total) *
       100;
 
-    console.log(this.progress);
+    // console.log(this.progress);
 
     prog.style.width = `${this.progress}%`;
     // console.log(prog.style.);
@@ -133,15 +132,7 @@ function kanban() {
       inProg: 0,
       done: 0,
     };
-    // if (ulBlock.id == "todo") {
-    //   // console.log("listItems: ", listItems.length);
-    // }
-    // if (ulBlock.id == "inProgress") {
-    // }
-
-    // console.log("listItems: ", listItems);
   };
-  // kanban.checkProgress();
 }
 
 kanban();
